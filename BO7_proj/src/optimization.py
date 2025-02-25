@@ -58,7 +58,7 @@ def run_optimization(n_calls=10):
         n_calls (int): The number of hyperparameter sets to evaluate.
     """
     print("Starting Bayesian Optimization...")
-    result = gp_minimize(objective, space, n_calls=n_calls, random_state=42)
+    result = gp_minimize(objective, space, n_calls=n_calls, random_state=42, acq_func="EI")
     
     best_params = {
         "learning_rate_init": result.x[0],
